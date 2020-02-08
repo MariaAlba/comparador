@@ -1,0 +1,27 @@
+import { Injectable } from '@angular/core';
+import { Ipokemon } from './ipokemon';
+import { HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class PokemonService implements Ipokemon {
+
+  constructor(private http: HttpClient){
+    console.trace('PokemonService constructor');
+  }
+
+  getAllPokemon(): Observable<any> {
+    const url = `https://pokeapi.co/api/v2/pokemon/`;
+    console.trace('pokemonServce getPokemon ' + url);
+    return this.http.get(url); //devuelve un observable
+  }
+  getHabilidad(nombreHabilidad: string): Observable<any> {
+    const url = `https://pokeapi.co/api/v2/ability/${nombreHabilidad}/`;
+    console.trace('PokemonService getHabilidad ' + url);
+    return this.http.get(url);
+  }
+
+
+}
