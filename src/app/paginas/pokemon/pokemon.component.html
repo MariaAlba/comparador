@@ -1,3 +1,11 @@
-<pre>
-    <p>{{pokemons | json}}</p>
-</pre>
+<div class="row">
+
+  <div class="col" *ngFor="let p of pokemons">
+    {{p.name}}
+    <img src="{{p.sprites.front_default}}" alt=" {{p.name}}" width="100px" height="100px">
+    Altura: {{p.height}}
+    Peso: {{p.weight}}
+    stats: {{pokemon.stats}}
+  </div>
+
+</div>
