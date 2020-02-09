@@ -1,11 +1,92 @@
+
+
 <div class="row">
 
-  <div class="col" *ngFor="let p of pokemons">
-    {{p.name}}
-    <img src="{{p.sprites.front_default}}" alt=" {{p.name}}" width="100px" height="100px">
-    Altura: {{p.height}}
-    Peso: {{p.weight}}
-    stats: {{pokemon.stats}}
-  </div>
+    <div class="col-lg-4">
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let p of pokemons" (click)="seleccionarPrimero(p)">
+                    {{p.name |titlecase}}
+            </li>
+        </ul>
+    </div>
+
+     <div class="col-lg-4">
+        <div class="card mb-4">
+            <h4 class="card-header text-center">
+                {{p1.name | titlecase }}
+             </h4> 
+             <img class="card-img-top img-fluid" src="{{p1.sprites.front_default}}" alt=" {{p1.name}}">
+             
+             <div class="card-body">
+                 <p class="card-text">Altura: {{p1.height}}</p>
+                 <p class="card-text">Peso: {{p1.weight}}</p>
+                 <h5 class="card-title">Stats</h5>    
+                <ul class="list-group">
+                     <li class="list-group-item" *ngFor="let stat of p1.stats">
+                         {{stat.stat.name | titlecase }} : {{stat.base_stat}}
+                     </li>
+                     
+                 </ul>  
+            </div> 
+     
+         </div>
+    </div> 
+
+    <div class="col-lg-4">
+        <div class="card mb-4">
+            <h4 class="card-header text-center">
+                {{p2.name | titlecase }}
+             </h4> 
+             <img class="card-img-top img-fluid" src="{{p2.sprites.front_default}}" alt=" {{p2.name}}">
+             
+             <div class="card-body">
+                 <p class="card-text">Altura: {{p2.height}}</p>
+                 <p class="card-text">Peso: {{p2.weight}}</p>
+                 <h5 class="card-title">Stats</h5>    
+                <ul class="list-group">
+                     <li class="list-group-item" *ngFor="let stat of p2.stats">
+                         {{stat.stat.name | titlecase }} : {{stat.base_stat}}
+                     </li>
+                     
+                 </ul>  
+            </div> 
+     
+         </div>
+    </div> 
+
+
+      <!-- <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-3" *ngFor="let p of pokemons">
+          
+              <div class="card mb-4" (click)="seleccionarPrimero(p)">
+                 <h4 class="card-header text-center">
+                     {{p.name | titlecase }}
+                  </h4> 
+                  <img class="card-img-top img-fluid" src="{{p.sprites.front_default}}" alt=" {{p.name}}">
+                  
+                  <div class="card-body">
+                      <p class="card-text">Altura: {{p.height}}</p>
+                      <p class="card-text">Peso: {{p.weight}}</p>
+                      <h5 class="card-title">Stats</h5>    
+                      <ul class="list-group">
+                          <li class="list-group-item" *ngFor="let stat of p.stats">
+                              {{stat.stat.name | titlecase }} : {{stat.base_stat}}
+                          </li>
+                          
+                      </ul>  
+                 </div>
+          
+              </div>
+            
+          
+            </div>
+
+        </div>
+      </div> -->
+ 
+   
+     
+ 
 
 </div>
